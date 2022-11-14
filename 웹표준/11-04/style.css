@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+body{
+    height: 10000px;
+}
+
+p{
+    font-size: 36px;
+    color: crimson;
+    /* text-decoration: line-through; */
+    background: limegreen;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 20px solid gray;
+    text-shadow: 4px 4px 3px black;
+    box-shadow: 4px 4px 5px red;
+}

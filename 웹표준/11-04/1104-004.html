@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포지션</title>
+    <style>
+        *{}
+        #wrapper{
+            width: 600px;
+            height: 600px;
+            border: 2px solid black;
+            position: relative;
+            margin: 50px auto;
+        }
+
+        .cls002{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+        }
+
+        .box1{
+            background: red;
+            top: 0;
+            left: 0;
+        }
+        .box2{
+            background: blue;
+            top: 0;
+            right: 0;
+        }
+        .box3{
+            background: green;
+            bottom: 0;
+            right: 0;
+        }
+        .box4{
+            background: crimson;
+            left: 0;
+            bottom: 0;
+        }
+        .box5{
+            background: #000;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="cls002 box1"></div>
+        <div class="cls002 box2"></div>
+        <div class="cls002 box3"></div>
+        <div class="cls002 box4"></div>
+        <div class="cls002 box5"></div>
+    </div>
+</body>
+</html>

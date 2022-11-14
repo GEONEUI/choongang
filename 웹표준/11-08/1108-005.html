@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>삼항조건연산자</title>
+</head>
+<body>
+    
+    <script>
+        $(function(){
+            console.log($);
+        })
+        </script>
+        
+        <script>
+               (function(){
+        //var a = 5;
+        //var b = 10;
+        //var result  = a > b ? "오늘 가야될까?" : "그냥 집으로 가자";
+
+
+        
+        // var name = prompt("이름이 뭐에요?");
+        // var height = prompt("키가 몇이에요?");
+        // var weight = prompt("몸무게가 몇이에요?");
+
+
+        // //평균체중
+        // var normal_w = (height - 100)*0.9;
+        
+        // var result = weight >= normal_w - 5 && weight <= normal_w +5;
+
+        // result = result ? "적정 체중 오케이" : "적정 체중 NO";
+
+
+        // console.log(result);
+
+        // document.write(name + "님은" + result);
+        
+
+        // var walk = prompt("하루에 걷는 양은 몇 걸음인가요?");
+        // if(walk >= 1000) {
+        //     alert('그만걸으셈');
+        // }else if(walk <= 1000){
+        //     alert('더걸으셈');
+        // }
+
+        var id = "bbkjh";
+        var pw = "1234";
+
+        var user_id = prompt("아이디가 뭔가요?");
+        var user_pw = prompt("비번은 뭔가요?");
+
+        if(user_id == id){
+            if(user_pw == pw){
+                document.write(user_id + '님 반갑습니다.');
+            }else{
+                alert('비밀번호가 일치하지 않습니다.');
+                window.location.reload();
+            }
+        }else{
+            alert("아이디가 일치 하지 않아요 떠나세요");
+            window.location.reload();
+        }
+        })();
+        </script>
+
+
+     
+        
+
+</body>
+</html>

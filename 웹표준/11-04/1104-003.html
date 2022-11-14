@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a</title>
+    <style>
+        #wrap{
+            width: 800px;
+            height: 100vh;
+            border: 2px solid #000;
+            margin: 0 auto;
+            /* -webkit-border-radius: 50px;
+            -o-border-radius: 50px;
+            -moz-border-radius: 50px; */
+        }
+
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+
+        a:hover{
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        p{
+            width: 600px;
+            height: 600px;
+            border: 2px solid #000;
+            margin: 0 auto;
+        }
+
+        p::before{
+            content: "";
+            display: block;
+            background: orange;
+            width: 100px;
+            height: 30px;
+            border: 2px solid #000;
+        }
+
+        p::after{
+            content: "";
+            display: block;
+            background: red;
+            color: #fff;
+            width: 100px;
+            height: 30px;
+            border: 2px solid #000;
+        }
+
+        ul li:nth-child(2n+2){
+            color: red;
+        }
+
+
+
+        @media (max-width:1000px){
+            #wrap{width: 100%;}
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <a href="#">링크</a>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur repellendus dolor cumque deserunt, laborum sapiente non porro minus recusandae, quisquam placeat, amet similique expedita dolorem aut omnis delectus voluptatum dignissimos?</p>
+    </div>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+    </ul>
+
+</body>
+</html>

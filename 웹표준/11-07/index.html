@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>화면이동연습</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+</head>
+<style>
+    /* Reset css */
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    body {
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .inner {
+        width: 1000px;
+        margin: 0 auto;
+    }
+
+    /* common css */
+    #wrap {}
+
+    #wrap .visual {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    /* sec1 */
+    .visual .fix-visual {
+        background: url('/image/sky.png')center center / cover no-repeat;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .visual .fix-visual h1 {
+        color: #fff;
+        text-shadow: 2px 2px 3px black;
+        font-size: 6rem;
+    }
+
+
+    /* sec2 */
+    .sec_contents {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        z-index: 9;
+        background: url('/image/sec2.jpg')center center / cover no-repeat;
+    }
+
+    .contents {
+        display: flex;
+        height: 100vh;
+
+    }
+
+    .contents-left {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contents-right {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .contents figure {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        opacity: 0;
+        transform: translateY(-10%);
+        
+    }
+
+    .contents.active figure{
+        opacity: 1;
+        transition: .5s .5s linear;
+        transform: translateY(0%);
+        
+    }
+
+    .contents-right figure:first-child {
+        margin-bottom: 3rem;
+    }
+
+
+    /* sec3 */
+    .sec_parallax {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        padding: 8rem 0;
+        z-index: 99;
+        background: #000;
+    }
+
+
+    .parallax {}
+
+    .parallax figure {}
+
+    .parallax .box-a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .parallax .box-b {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .parallax .box-b figure:first-child {
+        margin-right: 1%;
+    }
+
+    .parallax .box-c {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .parallax .box-c figure {
+        margin-right: 1%;
+    }
+
+    .parallax .parallax-box .parallax-item {}
+
+
+
+
+
+    /* sec4 */
+    .sec_mask {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        z-index: 99;
+        background: #000;
+    }
+
+    .mask {
+        padding-left: 20%;
+        padding-top: 10%;
+    }
+
+    .mask ul {}
+
+    .mask ul li {}
+
+    .mask ul li a {
+        display: block;
+        line-height: 75px;
+    }
+
+    .mask ul li a .txt {
+        color: #fff;
+        font-size: 6rem;
+        font-weight: bold;
+    }
+
+    .mask ul li a .mask {}
+
+    .mask ul li a .mask2 {}
+</style>
+
+<body>
+    <div id="wrap">
+        <div class="visual">
+            <div class="fix-visual">
+                <h1>Lorem ipsum dolor.</h1>
+            </div>
+        </div>
+        <div class="sec_contents">
+            <div class="inner">
+                <div class="contents">
+                    <div class="contents-left">
+                        <figure>
+                            <img src="../image/dog1.png" alt="" width="420" height="500">
+                        </figure>
+                    </div>
+                    <div class="contents-right">
+                        <figure>
+                            <img src="../image/dog2.png" alt="" width="370" height="290">
+                        </figure>
+                        <figure>
+                            <img src="../image/all.png" alt="" width="370" height="290">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sec_parallax">
+            <div class="parallax">
+                <div class="parallax-box box-a">
+                    <figure class="parallax-item">
+                        <img src="../image/item1.jpg" alt="" width="600" height="290">
+                    </figure>
+                </div>
+                <div class="parallax-box box-b">
+                    <figure class="parallax-item">
+                        <img src="../image/item2.jpg" alt="" width="350" height="310">
+                    </figure>
+                    <figure class="parallax-item">
+                        <img src="../image/item3.jpg" alt="" width="350" height="310">
+                    </figure>
+                </div>
+                <div class="parallax-box box-c">
+                    <figure class="parallax-item">
+                        <img src="../image/item4.jpg" alt="" width="270" height="250">
+                    </figure>
+                    <figure class="parallax-item">
+                        <img src="../image/item5.jpg" alt="" width="270" height="250">
+                    </figure>
+                    <figure class="parallax-item">
+                        <img src="../image/item1.jpg" alt="" width="270" height="250">
+                    </figure>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="sec_mask">
+            <div class="mask">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <span class="txt">Lorem</span>
+                            <span class="mask"></span>
+                            <span class="mask2"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="txt">psum</span>
+                            <span class="mask"></span>
+                            <span class="mask2"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="txt">ipsum</span>
+                            <span class="mask"></span>
+                            <span class="mask2"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="txt">dolor</span>
+                            <span class="mask"></span>
+                            <span class="mask2"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        var header = document.querySelector('#wrap');
+        var mainVisual = document.querySelector('.visual');
+        var contentsElem = document.querySelector('.contents');
+        var winTop;
+        var mainVisualTop;
+        var mainVisualBottom;
+        var moveIs = false;
+       
+
+
+
+        function getproperty() {
+            winTop = window.pageYOffset;
+            mainVisualTop = mainVisual.getBoundingClientRect().top + window.pageYOffset;
+            mainVisualBottom = mainVisualTop + mainVisual.getBoundingClientRect().height;
+        }
+
+        function scrollMove(MoveY){
+            var vh = 0;
+            var speed = 0.7;
+            var scrollY = 0;
+
+            var dir = MoveY > window.pageYOffset ? 1 : -1;
+            
+
+            var loop = setInterval(function(){
+            vh += speed * dir;
+            scrollY = vh + window.pageYOffset;
+
+
+			window.scrollTo(0, scrollY);
+
+            console.log(scrollY);
+
+            if(scrollY >= MoveY && dir > 0){
+                clearInterval(loop);
+                moveIs = false;
+            }else if(scrollY < MoveY && dir < 0){
+                clearInterval(loop);
+                moveIs = false;
+            }
+
+			
+
+
+            }, 10)
+        }
+
+
+        window.addEventListener('scroll', ()=>{
+            getproperty();
+            if(winTop > mainVisualTop && winTop < mainVisualBottom){
+                if(!moveIs){
+                    moveIs = true;
+                    if(!header.classList.contains('active')){
+                        header.classList.add('active');
+                        contentsElem.classList.add('active');
+						scrollMove(mainVisualBottom);
+                    }else{
+                        header.classList.remove('active');
+                        contentsElem.classList.remove('active');
+                        scrollMove(mainVisualTop);
+                    }
+                }
+            }
+        })
+
+
+
+        function init() {
+            getproperty();
+        }
+
+        init();
+    </script>
+</body>
+
+</html>

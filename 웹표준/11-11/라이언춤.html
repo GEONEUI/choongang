@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라이언</title>
+
+</head>
+<style>
+    .stage {
+        width: 100vw;
+        height: 100vh;
+        background: #fff;
+        perspective: 1000px;
+    }
+
+    .item{
+        width: 100%;
+        height: 100%;
+        transform-style:preserve-3d;
+    }
+
+    .img_con {
+        position: absolute;
+        top: 10%;
+        left: 0%;
+    }
+
+    .img_con[data-direction="left"]{
+        transform: rotateY(90deg);
+    }
+    .img_con[data-direction="right"]{
+        transform: rotateY(-90deg);
+    }
+    .img_con[data-direction="forward"]{
+        transform: rotateY(0deg);
+    }
+</style>
+
+<body>
+    <div class="stage">
+        <div class="item">
+
+        </div>
+    </div>
+
+
+
+    <script>
+
+
+
+        var target2 = document.querySelector('.item');
+        var target = document.querySelector('.item');
+        var mousePos = {x:0, y:0};
+
+
+        function Lion(info) {
+            this.mainElem = document.createElement('div');
+            this.mainElem.classList.add('img_con');
+            this.mainElem.innerHTML = ''
+                + '<figure>'
+                + '<img src="./image/dance.gif" alt="라이언댄스">'
+                + '</figure>';
+
+            this.mainElem.style.left = info.xPos + '%';
+            target.appendChild(this.mainElem);
+
+            // 움직임
+            this.xPos = info.xPos;
+            this.speed = 3;
+            this.init();
+            this.dir;
+            this.Moving = false;
+
+
+            //애니메이션프레임
+            this.random = info.xSpeed;
+           
+
+        }
+
+        Lion.prototype = {
+            constructor: Lion,
+            init: function () {
+                const self = this;
+                window.addEventListener('keydown', function (e) {
+                    if(self.Moving){
+                        return;
+                    }
+                    if (e.keyCode == 37) {
+                        self.dir = 'left';
+                        self.mainElem.setAttribute('data-direction', 'left');
+                        self.move(self);
+
+                    } else if (e.keyCode == 39) {
+                        self.dir = 'right';
+                        self.mainElem.setAttribute('data-direction', 'right');
+                        self.move(self);
+                        
+                    } else if (e.keyCode == 40) {
+                        self.mainElem.setAttribute('data-direction', 'forward');
+                    } 
+                });
+                window.addEventListener('keyup', ()=>{
+                    self.Moving = false;
+                    cancelAnimationFrame(loop)
+                })
+            },
+            move: function(self){
+                if(self.dir == 'left'){
+                    self.xPos -= self.random;
+                    self.mainElem.style.left = self.xPos + '%';
+                }else if(self.dir == 'right'){
+                    self.xPos += self.random;
+                    self.mainElem.style.left = self.xPos + '%';
+                }
+               
+
+                var loop = requestAnimationFrame(function(self){
+                    self.move(self);
+                })
+            }
+        }
+
+
+        window.addEventListener('mousemove', (e)=>{
+            mousePos.x = -1 + (e.clientX / window.innerWidth)*2;
+            mousePos.y = 1 - (e.clientY / window.innerHeight)*2;
+
+            target2.style.transform = 'rotateY(' + mousePos.x*30 + 'deg) rotateX(' + mousePos.y*30 + 'deg)';
+        })
+
+
+        window.addEventListener('click', (e) => {
+            new Lion(
+                {
+                     xPos: (e.clientX / window.innerWidth) * 100,
+                     xSpeed: Math.random(),
+                }
+            );
+        })
+
+
+    </script>
+</body>
+
+</html>

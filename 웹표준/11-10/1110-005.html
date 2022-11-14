@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>체크박스</title>
+    <link rel="stylesheet" href="./style/reset.css">
+    <style>
+        /* h1{font-size: 1.3rem;}
+
+        button{
+            width: 100px;
+            height: 30px;
+        } */
+    </style>
+</head>
+
+<body>
+    <!-- <h1>Click the radio button to toggle between password visibility</h1>
+    Password <input type="password" class="ps"><br><br>
+    <input type="checkbox" name="" id="" class="button">Show password -->
+
+    <button onclick="openFullScreen()">비디오가 전체창이 됩니다.</button>
+    <p>ESC키를 누루면 빠져나옵니다.</p>
+
+    <video src="./Beach.mp4" controls id="myvideo"></video>
+
+    <script>
+        // var buttonELem = document.querySelector('.button');
+        // var psElem = document.querySelector('.ps');
+
+        // buttonELem.addEventListener('click', ()=>{
+        //     var attr = psElem.getAttribute('type');
+
+        //     psElem.setAttribute('type', 'text');
+
+        //     if(attr == 'text'){
+        //         psElem.setAttribute('type', 'password');
+        //     }
+
+        // });
+
+        let elem = document.querySelector('#myvideo');
+
+        function openFullScreen(){
+            if(elem.requestFullscreen){
+                elem.requestFullscreen();
+            }else if(elem.webkitRequestFullscreen){
+                elem.webkitRequestFullscreen();
+            }else if(elem.msRequestFullscreen){
+                elem.msRequestFullscreen();
+            }
+        }
+
+    </script>
+</body>
+
+</html>

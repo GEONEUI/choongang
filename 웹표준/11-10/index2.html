@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <title>슬라이드메뉴 바닐라로 변경하기</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #galleryZone{
+            text-align: center;
+            width: 400px;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        #galleryZone .img_container{
+            display: flex;
+            position: relative;
+            width: 2000px;
+            height: 300px;
+        }
+        #galleryZone .img_container p img{
+            width: 400px;
+            height: 300px;
+        }
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <!-- <button class="btn">오늘은 점심 메뉴는?</button> -->
+
+    <div id="galleryZone">
+        <div class="img_container">
+            <p class="slide"><img src="/image/item1.jpeg" alt="이미지1" id="photo"></p>
+            <p class="slide"><img src="/image/item2.jpeg" alt="이미지1" id="photo"></p>
+            <p class="slide"><img src="/image/item3.jpeg" alt="이미지1" id="photo"></p>
+            <p class="slide"><img src="/image/item4.jpeg" alt="이미지1" id="photo"></p>
+            <p class="slide"><img src="/image/item5.jpeg" alt="이미지1" id="photo"></p>
+        </div>
+    </div>
+    <script>
+      
+        var slide_container = document.querySelector('.img_container');
+        var slide = document.querySelector('.slide');
+
+        function animate(MoveY){
+            var vh = 0;
+            var speed = 3;
+            var ScrollY = 0;
+
+            var loop = setInterval(function(){
+                vh += speed*-1;
+                ScrollY = vh + window.pageYOffset;
+    
+                slide_container.style.left = ScrollY + 'px';
+
+                console.log(ScrollY);
+
+                if(ScrollY <= MoveY){
+                    clearInterval(loop);
+                }
+
+            }, 10)
+        }
+
+
+
+
+
+
+
+        // setInterval(function(){
+
+            
+        //     slide_container.animate({
+        //         left: '-400px',
+        //     },1000, function(){
+        //         $('.slide:first-child').appendTo(slide_container);
+        //         slide_container.css({
+        //             left:'0',
+        //         })
+        //     })
+        // }, 3000)
+
+
+
+    </script>
+</body>
+</html>

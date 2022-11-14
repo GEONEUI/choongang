@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/reset.css">
+    <title>1110</title>
+    <style>
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        .active,
+        .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: #f9f9f9;
+            overflow: hidden;
+            height: 0;
+            transition: .3s;
+            border: 1px solid #ccc;
+        }
+
+        .on .panel{
+            height: 80px;
+            
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <h1>Accoding</h1>
+
+    <div class="container">
+        <button class="accordion">Section 1</button>
+        <div class="panel">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem excepturi id esse corporis aperiam
+                temporibus quae odit voluptatem doloremque fugit quos numquam quaerat obcaecati officia hic dicta maxime, ut
+                est.</p>
+        </div>
+    </div>
+
+
+    
+    <div class="container">
+        <button class="accordion">Section 2</button>
+        <div class="panel">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem excepturi id esse corporis aperiam
+                temporibus quae odit voluptatem doloremque fugit quos numquam quaerat obcaecati officia hic dicta maxime, ut
+                est.</p>
+        </div>
+    </div>
+
+    
+    <div class="container">
+        <button class="accordion">Section 3</button>
+        <div class="panel">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem excepturi id esse corporis aperiam
+                temporibus quae odit voluptatem doloremque fugit quos numquam quaerat obcaecati officia hic dicta maxime, ut
+                est.</p>
+        </div>
+    </div>
+
+    <script>
+        var currentItem;
+
+
+
+
+      window.addEventListener('click', (e)=>{
+        if(e.target.classList.contains('accordion')){
+            e.target.parentNode.classList.toggle('on');
+        }
+      })
+
+      
+
+
+
+       
+        
+    
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택문</title>
+    <style>
+        .red{
+            color: red;
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // var num = prompt("좋아하는 숫자가 뭐에요?");
+
+        // if(num % 2 == 0){
+        //     document.write("당신이 좋아하는 숫자는 짝수이네요");
+        // }else{
+        //     document.write("당신이 좋아하는 숫자는 홀수이네요");
+        // }
+
+        // var jumsu = prompt("수학점수 몇점이에요?");
+
+        // if(jumsu >= 90 && jumsu < 100){
+        //     document.write("A학점 이네요");
+        // }else if(jumsu >= 80 && jumsu < 90){
+        //     document.write("B학점 이네요");
+        // }else if(jumsu >= 70 && jumsu < 80){
+        //     document.write("C학점 이네요");
+        // }
+        // else if(jumsu < 70){
+        //     document.write("계절학기 ㄱㄱ");
+        // }
+
+
+        // var site = prompt("네이버 , 네이트 ,  다음 ,  구글중에서 즐겨 찾는 사이트는?");
+        // var url;
+
+        // switch(site){
+        //     case "구글" : url = "www.goggle.com";
+        //     break;
+
+        //     case "네이버" : url = "www.naver.com";
+        //     break;
+
+        //     case "다음" : url = "www.daum.net";
+        //     break;
+
+        //     case "네이트" : url = "www.nate.com";
+        //     break;
+
+        //     default: alert("여기에는 없는 사이트에요");
+            
+        // }
+
+        // if(url){
+        //     location.href = "http://" + url;
+        // } 
+
+
+        
+        // for(var i=10 ; i >= 1; i--){
+        //     console.log(i);
+        // }
+
+
+        for(var i = 0; i <= 100; i++){
+            if(i % 5 == 0 && i & 7 != 0){
+                document.write("<p class='red'>" + i + "</p>");
+            }
+        }
+
+
+    </script>
+</body>
+</html>

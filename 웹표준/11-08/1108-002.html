@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        /* reset css */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+            line-height: 2.0;
+            font-size: 1.6rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        body {
+            background: #fff;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .inner {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        img {
+            border: none;
+            vertical-align: middle;
+        }
+
+        html {
+            font-size: 8px;
+        }
+
+        a:link,
+        a:visited {
+            color: #fff;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        p {
+            line-height: 2.0;
+            font-size: 2.2rem;
+        }
+
+
+        #box > section{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+
+        #box p{text-align: center;}
+        
+
+        /* common css */
+        #container {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        header {
+            width: 100%;
+            height: 30rem;
+            background: url('./visual.jpg')center top / cover no-repeat;
+        }
+
+
+        /* header */
+        header nav {
+            height: 5rem;
+            background: #000;
+        }
+
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        header nav ul li {
+            display: inline;
+            color: #fff;
+            margin: 0.5rem 1.5rem;
+        }
+
+        section {
+            position: relative;
+            width: 100%;
+            padding: 8%;
+        }
+
+        section:nth-child(odd) {
+            background: #eee;
+        }
+
+        .page-title h1 {
+            margin-bottom: 2rem;
+        }
+
+        .content {
+            width: 100%;
+            padding: 2rem;
+            display: flex;
+        }
+
+        .photo{
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .photo img{
+            border-radius: 12px;
+        }
+
+        footer {
+            width: 100%;
+            height: 10rem;
+            background: #000;
+        }
+
+        footer p {
+            font-size: 2.4rem;
+            line-height: 100px;
+            color: #fff;
+            text-align: center;
+        }
+
+        @media(min-width:700px) {
+            html {
+                font-size: 10px;
+            }
+            #box{
+                display: flex;
+                flex-wrap: wrap;
+            }
+            #box #intro{width: 50%;}
+            #box #map{width: 50%;}
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <!-- header -->
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#">카페 소개</a></li>
+                    <li><a href="#">이달의 추천</a></li>
+                    <li><a href="#">오시는 길</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="box">
+            <!-- intro -->
+            <section id="intro">
+                <div class="page-title">
+                    <h1>카페 소개</h1>
+                </div>
+                <div class="contents">
+                    <div class="photo">
+                        <img src="./coffe1.jpeg" alt="커피사진">
+                    </div>
+                    <div class="text">
+                        <p>영업시간 : 오전 9시 ~ 밤 10시</p>
+                        <p>휴무 : 매주 수요일</p>
+                    </div>
+                </div>
+            </section>
+            <!-- map -->
+            <section id="map">
+                <div class="page-title">
+                    <h1>오시는 길</h1>
+                </div>
+                <div class="contents">
+                    <div class="photo">
+                        <img src="./coffe2.jpeg" alt="커피사진">
+                    </div>
+                    <div class="text">
+                        <p>알아서 잘 찾아와 주세요.</p>
+                        <p>오시면 서비스 드립니다.</p>
+                    </div>
+                </div>
+            </section>
+            <!-- choice -->
+            <section id="choice">
+                <div class="page-title">
+                    <h1>이 달의 추천</h1>
+                </div>
+                <div class="contents">
+                    <div class="photo">
+                        <img src="./coffe3.jpeg" alt="커피사진">
+                    </div>
+                    <div class="text">
+                        <p>아아를 추천해 드립니다.</p>
+                        <p>사이즈업 해드립니다.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+
+
+        <footer>
+            <p>MY tiem with coffee</p>
+        </footer>
+    </div>
+</body>
+
+</html>

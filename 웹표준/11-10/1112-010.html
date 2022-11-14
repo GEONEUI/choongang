@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string</title>
+    <style>
+        p{width: 100%; height: 110px; overflow: hidden; transition: .1s;}
+        p.active{height: 45px;}
+        button{cursor: pointer;}
+    </style>
+</head>
+<body>
+    <h1>Read More Read Less Button</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, qui aliquam at molestiae dolorum mollitia dicta delectus sapiente saepe cupiditate dolorem adipisci consectetur exercitationem temporibus officiis voluptatibus. Quia, consequuntur laborum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, qui aliquam at molestiae dolorum mollitia dicta delectus sapiente saepe cupiditate dolorem adipisci consectetur exercitationem temporibus officiis voluptatibus. Quia, consequuntur laborum?</p>
+    <button>Read less</button>
+
+    <script>
+        var pElem = document.querySelector('p');
+        var btnElem = document.querySelector('button');
+
+        btnElem.addEventListener('click', ()=>{
+            if(!pElem.classList.contains('active')){
+                pElem.classList.add('active');
+                btnElem.innerHTML= 'Read More';
+            }else{
+                pElem.classList.remove('active');
+                btnElem.innerHTML= 'Read Less';
+            }
+            
+        });
+    </script>
+</body>
+</html>

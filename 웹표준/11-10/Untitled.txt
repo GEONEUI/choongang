@@ -1,0 +1,11 @@
+¤± 11-10
+
+¹®ÀÚ¿­ °´Ã¼ : String °´Ã¼
+
+
+let str = Welcome To korea
+
+str.charAt(5) m
+
+indexOf("korea")
+

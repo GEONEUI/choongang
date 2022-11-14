@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cpas Lock</title>
+    <style>
+        #text{
+            display: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <input id="myInput" value="캡스락인지">
+        <p id="text">경고 캡스락이 켜졌어요</p>
+
+
+
+
+        <script>
+            let input = document.querySelector('#myInput');
+            let text = document.querySelector('#text');
+
+            window.addEventListener('keyup', (e)=>{
+                if(e.getModifierState("CapsLock")){
+                    text.style.display = "block";
+                    text.style.color = 'red';
+                    text.style.fontWeight = 'bold';
+                }else{
+                    text.style.display = "none";
+                }
+            });
+
+    
+
+        </script>
+    </body>
+    </html>
+</body>
+</html>

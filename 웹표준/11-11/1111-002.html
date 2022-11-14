@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라이언</title>
+
+</head>
+<style>
+    .item {}
+
+    .button_container {
+        display: flex;
+        width: 200px;
+        justify-content: center;
+    }
+
+    figure{}
+
+    .button_container button {
+        width: 80px;
+        height: 40px;
+        background: #777;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: .3s;
+        color: #fff;
+    }
+
+    .button_container button:first-child {
+        margin-right: 1rem;
+
+    }
+
+    .button_container button:hover {
+        background: #eee;
+        color: #000;
+    }
+</style>
+
+<body>
+    <div class="item">
+        <figure class="img">
+            <img src="./image/dance.gif" alt="라이언댄스">
+        </figure>
+        <div class="button_container">
+            <button class="add">add</button>
+            <button class="remove">remove</button>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+    <script>
+
+
+        $(function () {
+
+            var imgElem = $('.img');
+            var addElem = $('.add');
+            var removeElem = $('.remove');
+
+
+
+             addElem.click(function () {
+
+                 imgElem.stop(true).animate({
+                     marginLeft: "400px",
+                 }, 600)
+             })
+
+             removeElem.click(function () {
+                 imgElem.stop(true).animate({
+                     marginLeft: "0px",
+                 }, 600)
+             })
+
+
+             $(window).keydown(function (e) {
+                 if (e.keyCode == 39) {
+                     imgElem.stop(true).animate({
+                         marginLeft: "400px",
+                     }, 600)
+                 } else if (e.keyCode == 37) {
+                     imgElem.stop(true).animate({
+                         marginLeft: "0px",
+                     }, 600)
+                 }
+             })
+
+
+        });
+    </script>
+</body>
+
+</html>

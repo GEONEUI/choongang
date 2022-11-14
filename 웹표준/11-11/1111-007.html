@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+body {
+	font-family: "Roboto", "Noto Sans KR", sans-serif;
+	font-size: 1em;
+	font-weight: 400;
+}
+
+/* header */
+#header {
+	height: 100vh;
+	overflow: hidden;
+	background-color: #bbdaff;
+}
+#header > div {
+	margin: 50px 20px;
+	padding: 10px;
+	float: left;
+	width: 300px;
+	height: 300px;
+	font-size: 14px;
+	border: 1px solid #000;
+	opacity: 0;
+	box-sizing: border-box;
+	transform: translateY(100px);
+	transition: all 0.4s;
+}
+#header.active > div {
+	transform: translateY(0);
+	opacity: 1;
+}
+#header .type1 {
+	transition-delay: 0;
+}
+#header .type2 {
+	transition-delay: 0.5s;
+}
+#header .type3 {
+	transition-delay: 1s;
+}
+
+/* page1 */
+#page1 {
+	height: 100vh;
+	overflow: hidden;
+	background-color: #cafeb8;
+}
+#page1 > div {
+	margin: 50px 20px;
+	padding: 10px;
+	float: left;
+	width: 300px;
+	height: 300px;
+	font-size: 14px;
+	border: 1px solid #000;
+	opacity: 0;
+	box-sizing: border-box;
+	transform: translateY(100px);
+	transition: all 0.4s;
+}
+#page1.active > div {
+	transform: translateY(0);
+	opacity: 1;
+}
+#page1 .type1 {
+	transition-delay: 0;
+}
+#page1 .type2 {
+	transition-delay: 0.5s;
+}
+#page1 .type3 {
+	transition-delay: 1s;
+}
+
+/* page2 */
+#page2 {
+	height: 100vh;
+	overflow: hidden;
+	background-color: #ffe099;
+}
+#page2 > div {
+	margin: 50px 20px;
+	padding: 10px;
+	float: left;
+	width: 300px;
+	height: 300px;
+	font-size: 14px;
+	border: 1px solid #000;
+	opacity: 0;
+	box-sizing: border-box;
+	transform: translateY(100px);
+	transition: all 0.4s;
+}
+#page2.active > div {
+	transform: translateY(0);
+	opacity: 1;
+}
+#page2 .type1 {
+	transition-delay: 0;
+}
+#page2 .type2 {
+	transition-delay: 0.5s;
+}
+#page2 .type3 {
+	transition-delay: 1s;
+}
+</style>
+
+</head>
+<body>
+    <div class="wrap">
+        <header id="header">
+            <div class="type1">type1</div>
+            <div class="type2">type2</div>
+            <div class="type3">type3</div>
+        </header>
+        <section id="page1">
+            <div class="type1">type1</div>
+            <div class="type2">type2</div>
+            <div class="type3">type3</div>
+        </section>
+        <section id="page2">
+            <div class="type1">type1</div>
+            <div class="type2">type2</div>
+            <div class="type3">type3</div>
+        </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>   
+    <script>
+        // $(function(){
+        //     let t = 0
+
+        //     setTimeout(function(){
+        //         $('html, body').animate({
+        //             scrollTop: 0,
+        //         }, 1000, function(){
+        //             $('#header').addClass('active');
+        //         })
+        //     }, 300);
+
+        //     $(window).scroll(function(){
+        //         t = $(window).scrollTop();
+        //     })
+        // });
+
+
+        $(function(){
+            var wintop;
+
+            // header
+            var headerElem = $('#header'); //1조건
+            var headerElemTop; 
+            var headerElemBottom;
+
+            var page1Elem = $('#page1'); //2조건
+            var page1ElemTop;
+            var page1ElemBottom;
+
+            var page2Elem = $('#page2'); //3조건
+            var page2ElemTop;
+            var page2ElemBottom;
+
+            var lastScroll;
+            var ismove = false;
+
+            function setProperty(){
+                wintop = $(window).scrollTop();
+                // header
+                headerElemTop = headerElem.offset().top;
+                headerElemBottom = headerElemTop + headerElem.height();
+
+
+                page1ElemTop = page1Elem.offset().top;
+                page1ElemBottom = page1ElemTop + page1Elem.height();
+
+
+                page2ElemTop = page2Elem.offset().top;
+                page2ElemBottom = page2ElemTop + page2Elem.height();
+
+            }
+
+                $(window).scroll(function(){
+                    setProperty();
+                        if(wintop > headerElemTop && wintop < headerElemBottom){
+                            if(!ismove){
+                                ismove = true;
+                                if(!headerElem.hasClass('active')){
+                                    headerElem.addClass('active');
+                                    $('html').stop(true).animate({
+                                        scrollTop: headerElemBottom,
+                                    }, 1000, function(){
+                                        ismove = false;
+                                    })
+                                }else {
+                                    headerElem.removeClass('active');
+                                    $('html').stop(true).animate({
+                                        scrollTop: headerElemTop,
+                                    }, 1000, function(){
+                                        ismove = false;
+                                    })
+                                }
+                            }
+                        }
+                        if(wintop > page1ElemTop && wintop < page1ElemBottom){
+                            if(!ismove){
+                                ismove = true;
+                                    if(!page1Elem.hasClass('active')){
+                                        page1Elem.addClass('active');
+                                        $('html').stop(true).animate({
+                                            scrollTop: page1ElemTop,
+                                        }, 1000, function(){
+                                            ismove = false;
+                                        })
+                                    }else {
+                                        page1Elem.removeClass('active');
+                                        $('html').stop(true).animate({
+                                            scrollTop: page1ElemBottom,
+                                        }, 1000, function(){
+                                            ismove = false;
+                                        })
+                                    }
+                            }
+                        }
+
+
+                        lastScroll = $(window).scrollTop();
+                });
+
+
+
+
+
+           
+
+            function init(){
+                setProperty();
+            }
+
+            init();
+        })
+    </script>
+</body>
+</html>

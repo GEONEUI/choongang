@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>원상복구</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #wrap{
+            padding-left: 2rem;
+            padding-top: 2rem;
+        }
+
+        h1 {
+            margin-bottom: 1.5rem;
+            color: #444;
+            font-weight: normal;
+            display: inline-block;
+            width: 380px;
+            text-align: center;
+        }
+
+        .btn_wrap {
+            display: flex;
+            width: 380px;
+            justify-content: space-around;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgb(142, 181, 196);
+            transition: width .3s, border-radius .3s;
+            cursor: pointer;
+            flex-shrink: 0;
+            flex-basis: 28px;
+        }
+
+        .btn.active {
+            width: 56px;
+            border-radius: 12px;
+            background: lightgreen;
+        }
+
+        .img_wrap {}
+
+        .img_wrap figure {
+            position: absolute;
+        }
+
+        .img_wrap figure img {
+            width: 380px;
+            height: 380px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <h1>basic::javaScript example</h1>
+        <div class="btn_wrap">
+            <div class="btn"></div>
+            <div class="btn"></div>
+            <div class="btn"></div>
+            <div class="btn"></div>
+            <div class="btn"></div>
+        </div>
+        <div class="img_wrap">
+            <figure><img src="./image/item1.jpeg" alt=""></figure>
+            <figure><img src="./image/item2.jpeg" alt=""></figure>
+            <figure><img src="./image/item3.jpeg" alt=""></figure>
+            <figure><img src="./image/item4.jpeg" alt=""></figure>
+            <figure><img src="./image/item5.jpeg" alt=""></figure>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+    <script>
+        $(function(){
+            var btn = $('.btn_wrap .btn');
+            var figure = $('.img_wrap > figure');
+            
+
+            btn.click(function(e){
+                e.preventDefault();
+                var target = $(this);
+                var index = target.index();
+                btn.removeClass('active');  
+                target.addClass('active');
+                figure.css({
+                    opacity:0,
+                    transition: '1s',
+                })
+                figure.eq(index).css({
+                    opacity:1,
+                    transition: '1s',
+                });
+            });
+        });
+    </script>
+</body>
+
+
+</html>

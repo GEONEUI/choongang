@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>롤링</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .world{
+            background: #000;
+            width: 100vw;
+            height: 100vh;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .stage{
+            width: 800px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            height: 177px;
+            overflow: hidden;
+            align-items: center;
+        }
+        .count_box{
+            transform: translateY(0%);
+        }
+
+        .count_box:nth-child(1){animation: rolling linear 1s;}
+        .count_box:nth-child(2){animation: rolling linear 1.5s;}
+        .count_box:nth-child(3){animation: rolling linear 2s;}
+        .count_box:nth-child(4){animation: rolling linear 2.5s;}
+        .count_box:nth-child(5){animation: rolling linear 2.5s;}
+        .count_box:nth-child(6){animation: rolling linear 3s;}
+        .count_box:nth-child(7){animation: rolling linear 3.5s;}
+        .count_box:nth-child(8){animation: rolling linear 4s;}
+
+
+        .count_box span{
+            color: #fff;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 4px #fff;
+            font-size: 8rem;
+            font-weight: bold;
+            display: block;
+        }
+
+    
+        @keyframes rolling {
+            0%{transform: translateY(0%);}
+            100%{transform: translateY(-50%);}
+        }
+    </style>
+</head>
+<body>
+    <div class="world">
+        <div class="stage">
+
+        </div>
+    </div>
+    <script>
+        var date = new Date()
+        var today = String(date.getFullYear()) + String(date.getMonth()+1) + String(date.getDate());
+        var rolling = 10;
+        var todayArray = [];
+        var el = document.querySelector('.stage');
+
+        todayArray = today.split("");
+
+        todayArray.forEach((val, idx)=>{
+            var number = Number(val);
+            var numberArr = [];
+            var countbox = document.createElement('div');
+            countbox.className = "count_box";
+
+            console.log(countbox);
+            
+
+
+            for(var i = 0; i <= rolling ; i++){
+                var num = number + i;
+                var sum = num >= 10 ? Number(String(num).split("")[1]) : num;
+                numberArr[i] = sum;
+            
+                
+                numberArr.forEach((val)=>{
+                    var spancon = document.createElement('span');
+                    spancon.innerHTML = val;
+                    countbox.appendChild(spancon);
+                });
+
+                el.appendChild(countbox);
+                
+         
+               
+
+           
+            };
+            
+        });
+    
+
+       
+        
+
+
+    </script>
+</body>
+</html>

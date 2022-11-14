@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>like</title>
+    <style>
+        @import url("https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css");
+
+        h1{
+            font-size: 1.5rem;
+            font-weight: normal;
+        }
+
+        i{
+            font-size: 6rem;
+            transition: .5s;
+        }
+
+        i:hover{
+            color: blue;
+            cursor: pointer;
+        }
+
+        i.active{
+            transform: rotate(180deg);
+            
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <h1>Click on the icon to toggle between thumbs-up and thumbs-down</h1>
+    <i class="fa-solid fa-thumbs-up" id="icon"></i>
+
+    <script>
+       var iconElem = document.querySelector('#icon');
+
+       iconElem.addEventListener('click', ()=>{
+         iconElem.classList.toggle('active');
+       });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>윈도우객체</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        map{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <img src="all.png" alt="고양이" usemap="#intro">
+        <map name="intro" id="intro">
+            <area shape="circle" coords="100,100,50" href="" alt="" onclick="window.close();">
+        </map>
+    </p>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <title>점심메뉴 고르기</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #galleryZone{
+            text-align: center;
+            width: 400px;
+            height: 300px;
+        }
+
+        #galleryZone p{
+            width: 100%;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <!-- <button class="btn">오늘은 점심 메뉴는?</button> -->
+
+    <div id="galleryZone">
+        <p><img src="/image/item1.jpeg" alt="이미지1" id="photo"></p>
+
+            <button onclick="gallery(0);">이전</button>
+            <button onclick="gallery(1);">다음</button>
+        </p>
+    </div>
+
+    <script>
+        // var buttonELem = document.querySelector('.btn');
+
+        // var menu = ['짜장면', '돈가스', '된장국', '김치찌개', '회덮밥'];
+        // var random = Math.random();
+        // var rr = random*5
+        // var rrr = Math.floor(rr);
+
+
+        // buttonELem.addEventListener('click', ()=>{
+        //     for(var i=0; i <= menu.length ;i++){
+        //         if(rrr == i){
+        //           document.write(menu[rrr]);
+        //         }
+        //     }
+        // });
+
+        // let phoneNum = "010-4421-2367";
+        // let result_1 = phoneNum.substring(phoneNum.length-4, 0);
+
+        // document.write(result_1, "**** <br>");
+    
+
+
+        let imgTag = document.querySelector('#photo');
+    
+
+
+
+        window.addEventListener('keydown', (e)=>{
+            if(e.keyCode == 37){
+                gallery(0);
+            }else if(e.keyCode == 39){
+                gallery(1);
+            }
+        })
+
+        function gallery(direct){
+            if(direct){
+                if(num == 6) return;
+                num ++ ;
+                imgTag.setAttribute("src", "/image/item" + num + ".jpeg");
+            }else{
+                if(num == 1) return;
+                num -- ;
+                imgTag.setAttribute("src", "/image/item" + num + ".jpeg");
+            }
+        }
+
+       
+
+
+        
+
+        
+    </script>
+</body>
+</html>
