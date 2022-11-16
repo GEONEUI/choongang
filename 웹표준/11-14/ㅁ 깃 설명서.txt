@@ -1,0 +1,64 @@
+ㅁ 1114
+
+1114 일 수업내용
+
+git과 git-hub
+
+깃허브에 파일을 올리는 것 >> 호스팅
+
+넷리파이 >> 도메인을 달아주는 역할을 하는 사이트
+
+
+
+git config --global user.name "유저네임"
+git config --global user.email "유저이메일"
+
+로그인을 하게 되는 것
+
+git add.
+
+.이 의미하는 것은 모든 파일을 다 올려버리겠다
+
+git status
+
+어떠한 파일이 추가되었고 또한 어떠한 파일이 수정되었는지 모두 확인이 이루어집니다.
+
+git remote add origin 주소
+
+git commit -m "커밋이름"
+
+git push origin master
+
+rm -rf git.
+
+master에서 잠깐 벗어나게 됩니다.
+
+git init
+
+다시 초기화
+
+작업을 반복한다
+
+git clone 경로주소 "폴더명"
+
+freshman  폴더가 생겼다고 가정
+
+cd freshman
+
+code.
+비쥬얼 스튜디오 코드가 열리면서 해당파일을 오픈한다
+
+git add .
+git commit "second commit"
+
+git push origin freshman
+
+그 다음에 깃허브에 second commit으로 변경한 파일이 올라가게 됩니다
+
+리더한테 보고가 뜨게 됩니다 세컨 커밋을 프레쉬맨에 올렸다 확인해주세요
+
+리더는 프레쉬맨의 화일을 확인해 볼 수 있습니다
+
+확인결과 수정이 필요하다 > 다시 재요청
+
+
