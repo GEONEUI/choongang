@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>페이드인 아웃</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        #wrap{
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .s1{
+            width: 100%;
+            height: 500px;
+            background: url('../../image/banner1.png')center center / cover no-repeat;
+        }
+        .s2{
+            width: 100%;
+            height: 500px;
+            background: url('../../image/banner2.png')center center / cover no-repeat;
+        }
+        .s3{
+            width: 100%;
+            height: 500px;
+            background: url('../../image/banner3.png')center center / cover no-repeat;
+        }
+
+        .banner{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="banner_con">
+            <div class="s1 banner"></div>
+            <div class="s2 banner"></div>
+            <div class="s3 banner"></div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            var banner_con = $('.banner_con');
+            var banner = $('.banner_con .banner');
+
+            banner.hide().eq(0).show();
+            setInterval(function(){
+                $('.banner:first-child').fadeIn(1000).next(500).fadeOut(1000).end(500).appendTo(banner_con);
+            },1000)
+           
+
+        })
+    </script>
+</body>
+</html>
