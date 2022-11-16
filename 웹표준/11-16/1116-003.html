@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animate method</title>
+    <style>
+
+        img{transition: .3s; width: 0; height: 225px;}
+        img.active{width: 224px;}
+
+ 
+
+    </style>
+</head>
+<body>
+
+
+
+  <figure>
+        <img src="../../image/cat1.jpg" alt="">
+    </figure>
+    <button class="hide">slide hide</button>
+    <button class="show">slide show</button> 
+
+
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script>
+         $(function(){
+                $('.hide').click(function(){
+                   $('figure img').removeClass('active');
+                 });
+
+                 $('.show').click(function(){
+                     $('figure img').addClass('active');
+                 });
+         })
+
+
+    </script>
+</body>
+</html>

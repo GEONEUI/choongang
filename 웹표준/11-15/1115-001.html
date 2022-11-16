@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>사용 가능한 스킬을 클릭하세요!</h1>
+    <form>
+        <input type="radio" value="HTML" class="HTML" checked="checked">HTML    
+        <input type="radio" value="CSS" class="CSS">CSS    
+        <input type="radio" value="Javascript" class="JavaScript">Javascript    
+        <input type="radio" value="React" class="React">React    
+    </form>
+    <p><button class="btn">합격여부 조회하기</button></p>
+    
+    
+
+    <script>
+
+        // 벨류선언
+        var html = document.querySelector('.HTML');
+        var css = document.querySelector('.CSS');
+        var javascript = document.querySelector('.JavaScript');
+        var react = document.querySelector('.React');
+        var btn = document.querySelector('.btn');
+
+        // 배열선언
+        let skills = ["HTML", "CSS", "Javascript", "React"];
+
+        // 벨류 담기
+            var htmlValue;
+            var cssValue;
+            var javascriptValue;
+            var reactValue;
+
+        btn.addEventListener('click', ()=>{
+            htmlValue = html.value;
+            cssValue = css.value;
+            javascriptValue = javascript.value;
+            reactValue = react.value;
+
+     
+
+
+
+        })
+
+
+
+
+        
+
+    </script>
+</body>
+</html>

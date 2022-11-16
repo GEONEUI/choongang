@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+/* reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    line-height: 1;
+    background: url('../image/mainbg.jpg')center center / cover no-repeat;
+    height: 100vh;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+li{
+    list-style: none;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+img{
+    border: 0;
+    vertical-align: middle;
+}
+
+.container {
+    background : #fff;
+    min-height: 100vh;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.task-area {
+    border : 1px solid #ccc;
+}
+
+#task-tabs {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+
+#task-tabs div {
+    padding : 1em;
+    cursor: pointer;
+}
+
+#under-line {
+    height: 4px;
+    background-color: rgb(109, 19, 109);
+    position: absolute;
+    width : 90px;
+    left : 0;
+    top : 50px;
+    padding: 0 !important;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between; /*한번에 라인을 오른쪽으로 간격으로 잡아주는 것 */
+    padding : 1em;
+}
+
+.task-done{
+    text-decoration: line-through;
+}

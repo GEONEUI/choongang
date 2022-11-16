@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .row {
+            padding: 0 1.5rem
+        }
+
+        /* header */
+        .header {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .header .ham_btn {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            z-index: 99;
+        }
+
+        .header .ham_btn span {
+            width: 12px;
+            height: 4px;
+            background: #000;
+            display: block;
+            position: relative;
+            transition:0.7s;
+            z-index: 9999;
+
+        }
+
+        .header .ham_btn span::after {
+            width: 12px;
+            height: 4px;
+            background: #000;
+            display: block;
+            position: absolute;
+            content: "";
+            top: -7px;
+            transition:0.7s;
+        }
+        .header .ham_btn span::before {
+            width: 12px;
+            height: 4px;
+            background: #000;
+            display: block;
+            position: absolute;
+            content: "";
+            top: 7px;
+            transition:0.7s;
+        }
+
+        .header .ham_btn.on span{
+            background: #fff;
+        } 
+
+        .header .ham_btn.on span::after {
+            width: 12px;
+            height: 4px;
+            background: #fff;
+            display: block;
+            position: absolute;
+            content: "";
+            top: 0;
+        }
+        .header .ham_btn.on span::before {
+            width: 12px;
+            height: 4px;
+            background: #fff;
+            display: block;
+            position: absolute;
+            content: "";
+            top: 0;
+        }
+
+
+
+        .header .ham_menu {
+            background: #000;
+            width: 100vw;
+            height: 100vh;
+            transform: translateX(-100%);
+            transition:0.7s;
+        }
+
+
+        .header .ham_menu.on{
+            transform: translateX(0%);
+        }
+
+        .header .ham_menu ul {
+            padding-top:10vh;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .header .ham_menu ul li {}
+
+        .header .ham_menu ul li a {
+            display: block;
+            color: #fff;
+            font-weight: normal;
+            font-size: 1.3rem;
+            height: 58px;
+            border-bottom: 1px solid #fff;
+            line-height: 58px;
+            position: relative;
+        }
+
+
+        .header .ham_menu ul li a::after{
+            content: "▽";
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0px;
+            color: #fff;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="header">
+            <div class="ham_btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="ham_menu">
+                <ul>
+                    <li><a href="">menu1</a>
+                        <ul class="submenu">
+                            <li>submenu</li>
+                        </ul>
+                    </li>
+                    <li><a href="">menu2</a>
+                        <ul class="submenu">
+                            <li>submenu</li>
+                        </ul>
+                    </li>
+                    <li><a href="">menu3</a>
+                        <ul class="submenu">
+                            <li>submenu</li>
+                        </ul>
+                    </li>
+                    <li><a href="">menu4</a>
+                        <ul class="submenu">
+                            <li>submenu</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            var hamBtn = document.querySelector('.ham_btn');
+            var hamMenu = document.querySelector('.ham_menu');
+
+            hamBtn.addEventListener('click',()=>{
+                hamBtn.classList.toggle('on');
+                hamMenu.classList.toggle('on');
+            })
+        </script>
+</body>
+
+</html>

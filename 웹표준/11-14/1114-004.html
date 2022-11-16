@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO DO LIST</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../../style/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>TO DO LIST</h1>
+        <section class="input-area">
+            <input type="text" id="task-input" />
+            <button id="add-button">+</button>
+        </section>
+
+        <section class="task-area">
+            <div id="task-tabs">
+                <div id="under-line"></div>
+                <div>모든 것들</div>
+                <div>진행중인 것들</div>
+                <div>완료된 것들</div>
+            </div>
+
+            <div id="task-board">
+
+            </div>
+        </section>
+    </div>
+
+
+
+    <script>
+        //1. .유저가 값을 입력한다.
+        //2. + 버튼을 클릭하면, 할일이 추가되어진다.
+        //3. delete 버튼을 누르면 할일이 삭제되어진다.
+        //4. check 버튼을 누루면 할일이 끝나면서 취소선이 그어진다.
+            //check 버튼을 클릭하는 순간 false = true로 변경되어야한다
+            //true 이면 끝난걸로 간주하고 취소선이 그어진다.
+            //false이면 안끝난것으로 간주하고 보여준다.
+        //5. 진행중, 끝남 탭을 누르면 할일이 끝나면서, 언더바가 이동한다.
+        //6. 끝남탭은, 끝난 아이템만, 진행중인 탭은 진행중인 아이템만
+        //7. 전체탭을 누르면 다시 전체 아이템으로 돌아옴 
+        //함수 입장에서는 어떤 아이템을 눌렀는지 어떻게 알수가 있냐구요??
+        //내가 누굴 선택했는지 알아야 그 아이템만 취소선을 그릴 수 있게 될것입니다
+        
+        let taskInput = document.querySelector("#task-input");
+        let addButton = document.querySelector("#add-button");
+        let taskList = [];
+
+
+        
+  
+        addButton.addEventListener("click", ()=>{
+            let task = {
+                id: radomIdGenerate(),
+                taskContent : taskInput.value,
+                isComplete : false,
+            }
+
+            taskList.push(task);  
+
+            render();
+            
+        });
+
+        function toggleComplete(id){
+            console.log(taskList);
+            for(let i=0; i<taskList.length; i++){
+                if(taskList[i].id == id){
+                    taskList[i].isComplete = true;
+                    break;
+                }
+            }
+            render();
+        }
+        
+        function radomIdGenerate(){
+            return Math.random().toString(36).substr(2, 9);
+        }
+
+        function render(){
+            let resultHTML = "";
+            for(var i=0; i <taskList.length; i++){
+                if(taskList[i].isComplete == true){
+                    resultHTML += `<div class="task">
+                        <div class="task-done">${taskList[i].taskContent}</div>
+                            <div">
+                                <button onclick="toggleComplete('${taskList[i].id}')">Check</button>
+                                <button>Delete</button>
+                            </div>
+                        </div>`;
+                }else{
+                    resultHTML += `<div class="task">
+                        <div>${taskList[i].taskContent}</div>
+                            <div">
+                                <button onclick="toggleComplete('${taskList[i].id}')">Check</button>
+                                <button>Delete</button>
+                            </div>
+                        </div>`;
+                }
+            }
+            document.querySelector('#task-board').innerHTML = resultHTML;
+        }
+
+      </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>효과와 애니메이션</title>
+    <style>
+        .txt1{
+            width: 50px;
+            text-align: center;
+            background: red;
+            font-size: 1.2rem;
+        }
+
+        *{
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="txt1">내용</h1>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        
+        var btn = $('.txt1');
+
+        $(function(){
+            btn.click(()=>{
+                btn.animate({
+                    marginLeft : "500px",
+                }, 500);
+                btn.animate({
+                    marginTop : "500px",
+                }, 500);
+                btn.animate({
+                    marginLeft : "0px",
+                }, 500);
+                btn.animate({
+                    marginTop : "0px",
+                }, 500);
+            })
+        })
+        
+
+
+    </script>
+</body>
+</html>
