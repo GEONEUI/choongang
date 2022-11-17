@@ -73,7 +73,7 @@
 
 
 
-        function toggleComplete(){
+        function toggleComplete(Textvalue){
             new List(endElem, Textvalue);
         }
 
@@ -86,16 +86,17 @@
         function List(target, Textvalue){
             this.mainElem = document.createElement('div');
             this.mainElem.classList.add('task');
+            this.Textvalue = Textvalue;
             this.mainElem.innerHTML = ''
                     +'<div>' + Textvalue + '</div>'
                     +'<div class="button-con">'
-                      +'<button onclick="toggleComplete('+"Textvalue"+')">Check</button>'
+                      +'<button onclick="toggleComplete('+ this.Textvalue +')">Check</button>'
                       +'<button>Delete</button>'
                     +'</div>';
            
             target.appendChild(this.mainElem);
             this.target = target;
-            this.Textvalue = Textvalue;
+            
             this.end = document.querySelector('.end');
             this.con;
             this.elem;

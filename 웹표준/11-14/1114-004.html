@@ -22,9 +22,9 @@
         <section class="task-area">
             <div id="task-tabs">
                 <div id="under-line"></div>
-                <div>모든 것들</div>
-                <div>진행중인 것들</div>
-                <div>완료된 것들</div>
+                <div id="all">모든 것들</div>
+                <div id="ongoing">진행중인 것들</div>
+                <div id="done">완료된 것들</div>
             </div>
 
             <div id="task-board">
@@ -40,67 +40,69 @@
         //2. + 버튼을 클릭하면, 할일이 추가되어진다.
         //3. delete 버튼을 누르면 할일이 삭제되어진다.
         //4. check 버튼을 누루면 할일이 끝나면서 취소선이 그어진다.
-            //check 버튼을 클릭하는 순간 false = true로 변경되어야한다
-            //true 이면 끝난걸로 간주하고 취소선이 그어진다.
-            //false이면 안끝난것으로 간주하고 보여준다.
+        //check 버튼을 클릭하는 순간 false = true로 변경되어야한다
+        //true 이면 끝난걸로 간주하고 취소선이 그어진다.
+        //false이면 안끝난것으로 간주하고 보여준다.
         //5. 진행중, 끝남 탭을 누르면 할일이 끝나면서, 언더바가 이동한다.
         //6. 끝남탭은, 끝난 아이템만, 진행중인 탭은 진행중인 아이템만
         //7. 전체탭을 누르면 다시 전체 아이템으로 돌아옴 
         //함수 입장에서는 어떤 아이템을 눌렀는지 어떻게 알수가 있냐구요??
         //내가 누굴 선택했는지 알아야 그 아이템만 취소선을 그릴 수 있게 될것입니다
-        
+
         let taskInput = document.querySelector("#task-input");
         let addButton = document.querySelector("#add-button");
         let taskList = [];
+        let tabs = document.querySelectorAll("#task-tabs div");
+        let mode = "all";
+        let filterList = [];
 
 
-        
-  
-        addButton.addEventListener("click", ()=>{
+        // 플러스버튼
+        addButton.addEventListener("click", () => {
             let task = {
                 id: radomIdGenerate(),
-                taskContent : taskInput.value,
-                isComplete : false,
+                taskContent: taskInput.value,
+                isComplete: false,
             }
 
-            taskList.push(task);  
-
+            taskList.push(task);
             render();
-            
+
         });
 
-        function toggleComplete(id){
-            console.log(taskList);
-            for(let i=0; i<taskList.length; i++){
-                if(taskList[i].id == id){
-                    taskList[i].isComplete = true;
-                    break;
-                }
-            }
-            render();
-        }
-        
-        function radomIdGenerate(){
-            return Math.random().toString(36).substr(2, 9);
+        // 탭메뉴클릭
+        for (let i = 1; i < tabs.length; i++) {
+            tabs[i].addEventListener('click', function (event) {
+                filter(event); //여기서뿌리는거
+            })
+
         }
 
-        function render(){
+        //랜더실행
+        function render() {
+            let list = [];
+            if (mode == "all") {
+                list = taskList;
+            } else if (mode == "ongoing" || mode == "done") {
+                list = filterList;
+            }
+
             let resultHTML = "";
-            for(var i=0; i <taskList.length; i++){
-                if(taskList[i].isComplete == true){
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].isComplete == true) {
                     resultHTML += `<div class="task">
-                        <div class="task-done">${taskList[i].taskContent}</div>
+                        <div class="task-done">${list[i].taskContent}</div>
                             <div">
-                                <button onclick="toggleComplete('${taskList[i].id}')">Check</button>
-                                <button>Delete</button>
+                                <button onclick="toggleComplete('${list[i].id}')">Check</button>
+                                <button onclick="deleteTask('${list[i].id}')">Delete</button>
                             </div>
                         </div>`;
-                }else{
+                } else {
                     resultHTML += `<div class="task">
-                        <div>${taskList[i].taskContent}</div>
+                        <div>${list[i].taskContent}</div>
                             <div">
-                                <button onclick="toggleComplete('${taskList[i].id}')">Check</button>
-                                <button>Delete</button>
+                                <button onclick="toggleComplete('${list[i].id}')">Check</button>
+                                <button onclick="deleteTask('${list[i].id}')">Delete</button>
                             </div>
                         </div>`;
                 }
@@ -108,7 +110,62 @@
             document.querySelector('#task-board').innerHTML = resultHTML;
         }
 
-      </script>
+
+
+        function filter(event) {
+            mode = event.target.id;
+            filterList = [];
+            if (mode == "all") {
+                render();
+            } else if (mode == "ongoing") {
+                for (let i = 0; i < taskList.length; i++) {
+                    if (taskList[i].isComplete == false) {
+                        filterList.push(taskList[i]);
+                    }
+                }
+            } else if (mode == "done") {
+                for (let i = 0; i < taskList.length; i++) {
+                    if (taskList[i].isComplete == true) {
+                        filterList.push(taskList[i]);
+                    }
+                }
+            }
+            render();
+        }
+
+            
+            function toggleComplete(id) {
+                for (let i = 0; i < taskList.length; i++) {
+                    if (taskList[i].id == id) {
+                        taskList[i].isComplete = true;
+                        break;
+                    }
+                }
+            }
+            
+
+
+
+            function deleteTask(id) {
+                //console.log("삭제될까요?");
+                for (let i = 0; i < taskList.length; i++) {
+                    if (taskList[i].id == id) {
+                        taskList.splice(i, 1);
+                        break;
+                    }
+                }
+                render();
+                console.log(taskList);
+            }
+
+            //랜덤 아이디생성
+            function radomIdGenerate() {
+                return Math.random().toString(36).substr(2, 9);
+            }
+
+
+
+    </script>
 </body>
 
 </html>
